@@ -29,7 +29,7 @@ export default function AudioPlayer() {
   };
 
   return (
-    <Atropos rotateXMax={5} rotateYMax={5}>
+    <Atropos rotateXMax={5} rotateYMax={5} className="shadow-2xl">
       <div className="bg-[url('/assets/images/cover.jpg')] bg-cover bg-right rounded-lg h-[calc(100vh-134px)] md:h-[565px] w-[calc(100vw-48px)] md:w-[375px] flex flex-col justify-end overflow-hidden border text-white">
         <div className="bg-gradient-to-t from-black p-6">
           <DisplayTrack {...{
