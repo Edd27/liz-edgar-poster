@@ -12,7 +12,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Liz y Edgar",
+  title: "Liz ♡ Edgar",
   description: "Poster de Liz y Edgar",
 };
 
