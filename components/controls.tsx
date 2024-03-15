@@ -26,6 +26,8 @@ interface Props {
   setTrackIndex: Dispatch<SetStateAction<number>>;
   setCurrentTrack: Dispatch<SetStateAction<Track>>;
   skipForward: () => void;
+  volume: number;
+  setVolume: Dispatch<SetStateAction<number>>;
 }
 
 export default function Controls({
@@ -38,9 +40,9 @@ export default function Controls({
   setTrackIndex,
   setCurrentTrack,
   skipForward,
+  volume,
 }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume] = useState(30);
   const playAnimationRef = useRef<number | null>(null);
 
   const togglePlayPause = () => {
@@ -53,7 +55,7 @@ export default function Controls({
       setTrackIndex(lastTrackIndex);
       setCurrentTrack(tracks[lastTrackIndex]);
     } else {
-      setTrackIndex(prev => prev - 1);
+      setTrackIndex((prev) => prev - 1);
       setCurrentTrack(tracks[trackIndex - 1]);
     }
   };
@@ -79,18 +81,21 @@ export default function Controls({
   }, [isPlaying, audioRef, repeat, duration]);
 
   useEffect(() => {
-    if (audioRef?.current){
+    if (audioRef?.current) {
       audioRef.current.volume = volume / 100;
     }
   }, [volume, audioRef]);
 
   return (
-    <section className="w-full flex items-center justify-between">
+    <section className="flex w-full items-center justify-between">
       <ShuffleButton disabled={true} />
-      <SkipBackwardButton onClick={skipBackward}/>
-      <PlayButton isPlaying={isPlaying} onClick={togglePlayPause}/>
+      <SkipBackwardButton onClick={skipBackward} />
+      <PlayButton
+        isPlaying={isPlaying}
+        onClick={togglePlayPause}
+      />
       <SkipForwardButton onClick={skipForward} />
-      <RepeatButton disabled={true}/>
+      <RepeatButton disabled={true} />
     </section>
   );
 }
