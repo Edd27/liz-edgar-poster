@@ -1,5 +1,6 @@
 export type Track = {
   title: string;
-  src: string;
   author: string;
-}
+  src: string;
+  cover: string;
+};

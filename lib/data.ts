@@ -1,17 +1,20 @@
 export const tracks = [
   {
     title: "A Donde Vamos",
-    src: "a-donde-vamos.mp3",
     author: "Morat",
+    src: "a-donde-vamos.mp3",
+    cover: "cover1.jpg",
   },
   {
     title: "Sparks",
-    src: "sparks.mp3",
     author: "Coldplay",
+    src: "sparks.mp3",
+    cover: "cover2.jpg",
   },
   {
     title: "Ojitos de Miel",
-    src: "ojitos-de-miel.mp3",
     author: "T3R Elemento",
+    src: "ojitos-de-miel.mp3",
+    cover: "cover3.jpg",
   },
 ];

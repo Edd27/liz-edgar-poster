@@ -1,12 +1,13 @@
 "use client";
 
+import VolumeControl from "@/components/volume-control";
 import { tracks } from "@/lib/data";
 import Atropos from "atropos/react";
 import { useRef, useState } from "react";
 import Controls from "./controls";
 import DisplayTrack from "./display-track";
 import ProgressBar from "./progress-bar";
-import VolumeControl from "@/components/volume-control";
+import TrackCover from "./track-cover";
 
 export default function AudioPlayer() {
   const [trackIndex, setTrackIndex] = useState(0);
@@ -35,7 +36,7 @@ export default function AudioPlayer() {
         rotateYMax={5}
         className="shadow-2xl"
       >
-        <div className="flex h-[calc(100vh-134px)] w-[calc(100vw-48px)] flex-col justify-end overflow-hidden rounded-lg border bg-[url('/assets/images/cover.jpg')] bg-cover bg-right text-white md:h-[565px] md:w-[375px]">
+        <div className="relative flex h-[calc(100vh-134px)] w-[calc(100vw-48px)] cursor-grab flex-col justify-end overflow-hidden rounded-lg border text-white md:h-[565px] md:w-[375px]">
           <div className="bg-gradient-to-t from-black p-6">
             <DisplayTrack
               {...{
@@ -69,6 +70,7 @@ export default function AudioPlayer() {
               }}
             />
           </div>
+          <TrackCover track={currentTrack} />
         </div>
       </Atropos>
       <VolumeControl

@@ -1,7 +1,7 @@
 "use client";
 
-import { Volume1, Volume2 } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
+import { Volume1, Volume2 } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 
 interface Props {
@@ -21,7 +21,7 @@ export default function VolumeControl({ volume, setVolume }: Props) {
   }
 
   return (
-    <div className="fixed right-16 top-4 hidden w-52 items-center justify-center gap-1 rounded-lg bg-foreground text-accent lg:flex">
+    <div className="fixed right-16 top-4 hidden w-52 items-center justify-center gap-1 rounded-lg bg-foreground text-accent md:flex">
       <button
         className="py-2 pl-3"
         onClick={decrementVolume}
